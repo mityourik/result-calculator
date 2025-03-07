@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styles from './App.module.css';
 
-const NUMS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+const NUMS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '0'];
 const BUTTONS = ['+', '-', 'C', '='];
 const MAX_DIGITS = 10;
 
-const removeLeadingZeros = (num) => {
+const removeUselessZeros = (num) => {
     return num.replace(/^0+(\d)/, '$1');
 };
 
@@ -24,11 +24,11 @@ const App = () => {
         } else {
             if (!operator) {
                 if (operand1.length < MAX_DIGITS) {
-                    setOperand1(removeLeadingZeros(operand1 + digit));
+                    setOperand1(removeUselessZeros(operand1 + digit));
                 }
             } else {
                 if (operand2.length < MAX_DIGITS) {
-                    setOperand2(removeLeadingZeros(operand2 + digit));
+                    setOperand2(removeUselessZeros(operand2 + digit));
                 }
             }
         }
